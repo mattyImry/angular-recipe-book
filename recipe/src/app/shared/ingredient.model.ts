@@ -9,7 +9,7 @@
 
 // }
 
-//THIS IS A SHIORT CUT TO CREATE A MODEL AS ABOVE the difference is in the constructor: add public before prpperty
+//THIS IS A SHORT CUT TO CREATE A MODEL AS ABOVE the difference is in the constructor: add public before prpperty
 
 export class Ingredient {
     constructor(public name: string, public amount: number) {}
