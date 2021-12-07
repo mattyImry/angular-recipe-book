@@ -10,7 +10,7 @@ export class CockpitComponent implements OnInit {
   @Output('bpCreated') blueprintCreated = new EventEmitter<{serverName: string, serverContent: string}>();
   // newServerName = '';
   // newServerContent = '';
-  @ViewChild('serverContentInput') serverContentInput: ElementRef; //@viewchild used to fecth a local reference in html file use ElementRef
+  @ViewChild('serverContentInput') serverContentInput: ElementRef; //@viewchild used to fecth a local reference as attribute in html file.  use ElementRef
 
   constructor() { }
 
@@ -26,6 +26,7 @@ export class CockpitComponent implements OnInit {
   }
 
   onAddBlueprint(serverNameInput: HTMLInputElement) {
+    // this.serverContentInput.nativeElement.value = 'Something' do not access the dome like this do not use en elkement use propery binding.
     this.blueprintCreated.emit({
       serverName: serverNameInput.value,
       serverContent: this.serverContentInput.nativeElement.value // use native element.value to display value
