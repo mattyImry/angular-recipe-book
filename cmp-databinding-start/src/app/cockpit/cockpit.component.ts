@@ -10,7 +10,7 @@ export class CockpitComponent implements OnInit {
   @Output('bpCreated') blueprintCreated = new EventEmitter<{serverName: string, serverContent: string}>();
   // newServerName = '';
   // newServerContent = '';
-  @ViewChild('serverContentInput') serverContentInput: ElementRef; //@viewchild used to fetch a local reference as attribute in html file.  use ElementRef
+  @ViewChild('serverContentInput', {static:true}) serverContentInput: ElementRef; //@viewchild used to fetch a local reference as attribute in html file.  use ElementRef
 
   constructor() { }
 
