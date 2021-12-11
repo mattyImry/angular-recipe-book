@@ -6,8 +6,8 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./game-control.component.css']
 })
 export class GameControlComponent implements OnInit {
-  @Output() intervalFired = new EventEmitter<number>(); //inside<> is the type of object like string , number etc
-  interval;
+  @Output() intervalFired = new EventEmitter<number>(); //inside<> is the type of object like string , number etc.() are needed to get an instance of this object
+  interval; // created property
   lastNumber = 0;
 
   constructor() { }
