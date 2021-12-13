@@ -12,10 +12,11 @@ import {
 
 export class HeaderComponent {
     collapsed = true;
-    @Output() featureSelected = new EventEmitter<string>();
+    @Output() featureSelected = new EventEmitter<string>(); //event emitter to emit property to app.html
 
 
     onSelect(feature: string) {
+        // methods to emit feature when link is clicked
         this.featureSelected.emit(feature);
     }
 }
