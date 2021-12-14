@@ -15,8 +15,8 @@ export class HeaderComponent {
     @Output() featureSelected = new EventEmitter<string>(); //event emitter to emit property to app.html
 
 
-    onSelect(feature: string) {
+    onSelect(feature: string) {//name of argument string to be used in app.ts 
         // methods to emit feature when link is clicked
         this.featureSelected.emit(feature);
-    }
+    } 
 }
