@@ -12,7 +12,7 @@ export class ShoppingEditComponent implements OnInit {
   @ViewChild('nameInput') nameInputRef: ElementRef;
   @ViewChild('amountInput') amountInputRef: ElementRef;
   // ingredientAdded = new EventEmitter<{name: string, amount: number}>(); // you can explicit show the object or
-  @Output() ingredientAdded = new EventEmitter<Ingredient>();     // just pass the model name Ingredients
+  @Output() ingredientAdded = new EventEmitter<Ingredient>();     // just pass the model name Ingredients output the ingediaents to parent whre array is
 
   constructor() { }
 

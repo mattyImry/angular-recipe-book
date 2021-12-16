@@ -1,19 +1,22 @@
 <a href="#" 
-class="list-group-item clearfix" 
-(click)="onSelected()">
-  <div class="pull-left">
-    <h4 class="list-group-item-heading">{{ recipe.name }}</h4>
-    <!--ASSESING THE NAME FROM OUR OBJECT RECIPE-->
-    <!-- USING PROPERTY NAME SET IN THE MODEL IN THE -->
-    <!-- CLASS NOT THE CONSTRUCTOR-->
-    <p class="list-group-item-text">{{ recipe.description }}</p>
-  </div>
-  <span class="pull-right">
-    <!-- src="{{ recipe.imagePath }}" STRING INTERPOLATION FROM MODEL -->
-    <!-- [src]="recipe.imagePath" AN ALTERNATIVE IS USE THE SRC PROPERTY USING PROPERTY BINDING -->
-    <img [src]="recipe.imagePath" 
-    alt="{{ recipe.name }}" 
-    class="img-responsive" 
-    style="max-height: 50px;">
-  </span>
-</a>
+  class="list-group-item clearfix" 
+  (click)="onSelected()">
+    <div class="pull-left">
+      <h4 class="list-group-item-heading">{{ recipe.name }}</h4>
+
+      <!--ASSESING THE NAME FROM OUR OBJECT RECIPE-->
+      <!-- USING PROPERTY NAME SET IN THE MODEL IN THE -->
+      <!-- CLASS NOT THE CONSTRUCTOR-->
+      <p class="list-group-item-text">{{ recipe.description }}</p>
+
+    </div>
+    <span class="pull-right">
+      <!-- src="{{ recipe.imagePath }}" STRING INTERPOLATION FROM MODEL -->
+      <!-- [src]="recipe.imagePath" AN ALTERNATIVE IS USE THE SRC PROPERTY USING PROPERTY BINDING -->
+
+        <img [src]="recipe.imagePath" 
+        alt="{{ recipe.name }}" 
+        class="img-responsive" 
+        style="max-height: 50px;">
+    </span> 
+</a> 
