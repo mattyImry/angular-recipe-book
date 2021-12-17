@@ -17,11 +17,11 @@
         </li>
         </div>
 
-        <div *ngIf="!onlyOdd">
+        <div *appUnless="onlyOdd">
           <li
           class="list-group-item"
-          [ngClass]="{even: even % 2 == 0}"
-          [ngStyle]="{backgroundColor: even % 2 !== 0 ? 'blue' : 'red'}"
+          [ngClass]="{odd: even % 2 == 0}"
+          [ngStyle]="{backgroundColor: even % 2 !== 0 ? 'yellow' : 'transparent'}"
           *ngFor="let even of evenNumbers">
           {{ even }}
         </li>
