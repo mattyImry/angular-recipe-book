@@ -27,8 +27,15 @@
         </li>
         </div> 
       </ul>
-      <p appBasicHighlight>Style me with basic directives</p>
-      <p appBetterHighlight>Style me with Better directives</p>
+      <p appBasicHighlight >Style me with basic directives</p>
+      <p appBetterHighlight [defaultColor]="'yellow'" [highlightColor]="'red'">Style me with Better directives</p>
+      <!--
+        if you are adding the alias in the @input brackets with the same name a the directive you can use [] aroud the directive and assign the value to have the same style 
+        as the property (this way its an option)
+
+        In property binding you can remove the [] and the '' its a special case as you are passing a string and can still use propertry binding.Be carfull with this use a ssomeone can think is an attribute of the element you are placing it on
+      <p [appBetterHighlight]="'red'" defaultColor="yellow" >Style me with Better directives</p>
+      -->
     </div>
   </div>
 </div>
