@@ -36,6 +36,13 @@
         In property binding you can remove the [] and the '' its a special case as you are passing a string and can still use propertry binding.Be carfull with this use a ssomeone can think is an attribute of the element you are placing it on
       <p [appBetterHighlight]="'red'" defaultColor="yellow" >Style me with Better directives</p>
       -->
+
+      <div [ngSwitch]="value">
+        <p *ngSwitchCase="5">Value is 5</p>
+        <p *ngSwitchCase="10">Value is 10</p>
+        <p *ngSwitchCase="100">Value is 100</p>
+        <p *ngSwitchDefault>Value is Default</p>
+      </div>
     </div>
   </div>
 </div>
