@@ -1,4 +1,5 @@
 import { Injectable, EventEmitter } from '@angular/core';
+import { Ingredient } from '../shared/ingredient.model';
 
 import { Recipe } from './recipe.model';
 
@@ -10,8 +11,22 @@ export class RecipeService {
   recipeSelected = new EventEmitter<Recipe>();
 
   private recipes: Recipe[] = [
-    new Recipe('A test recipe', 'This is a recipe test', 'https://3.bp.blogspot.com/-l5_isU_8wNw/WZMvUwdAfQI/AAAAAAAAD0Y/FWUjJhmZUnsbh1hHbHpQWfspPMfcjTC_ACLcBGAs/s640/1.JPG'),
-    new Recipe('Lasagna', 'Mammas favourite', 'https://s23209.pcdn.co/wp-content/uploads/2016/03/Easiest-Lasagna-EverIMG_0217.jpg'),
+    new Recipe(
+      'Spetzel',
+      'Local dish from Trentino', 
+      'https://www.savorynothings.com/wp-content/uploads/2019/08/jaegerspaetzle-image-2.jpg',
+      [
+        new Ingredient('Spinach', 10),
+        new Ingredient('Pancetta', 15)
+      ]),
+    new Recipe(
+      'Lasagna', 
+      'Mammas favourite', 
+      'https://s23209.pcdn.co/wp-content/uploads/2016/03/Easiest-Lasagna-EverIMG_0217.jpg',
+      [
+        new Ingredient('Sauce', 5),
+        new Ingredient('Pasta', 10)
+      ]),
   ];
 
   getRecipes() {
