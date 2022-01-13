@@ -18,6 +18,7 @@ import { RouterModule, Routes } from '@angular/router';
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'users', component: UserComponent },
+  { path: 'users/:id/:name', component: UserComponent }, //by adding id and name that are dynamic parts you can retrive it in the component users in this case
   { path: 'servers', component: ServersComponent },
 ];
 
