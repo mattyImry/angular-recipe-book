@@ -1,7 +1,15 @@
 <div class="row">
   <div class="col-xs-12 col-sm-4">
     <div class="list-group">
-      <a href="#" class="list-group-item" *ngFor="let server of servers">
+      <!-- [queryParams] property to add query to url when link is clicked -->
+      <!-- fragment add # to url with loading or anything you want to add -->
+      <a 
+      [routerLink]="['/servers', 5, 'edit']"
+      [queryParams]="{allowEdit: '1'}" 
+      fragment="loading"
+      href="#" 
+      class="list-group-item" 
+      *ngFor="let server of servers">
         {{ server.name }}
       </a>
     </div>
