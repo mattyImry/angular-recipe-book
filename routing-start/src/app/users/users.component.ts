@@ -24,4 +24,4 @@ export class UsersComponent {
       name: 'Matt'
     }
   ];
-}
+} 

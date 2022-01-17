@@ -15,9 +15,11 @@
     </div>
   </div>
   <div class="col-xs-12 col-sm-4">
-    <button class="btn btn-primary" (click)="onReload()">Reload Page</button>
+    <!-- this hook will work on all the child routs of the route being loaded on the servers component which uses /server . thi is usefull when you need to display child of components from a parent component-->
+    <router-outlet></router-outlet>
+    <!-- <button class="btn btn-primary" (click)="onReload()">Reload Page</button>
     <app-edit-server></app-edit-server>
     <hr>
-    <!-- <app-server></app-server> -->
+    <app-server></app-server> -->
   </div>
 </div>

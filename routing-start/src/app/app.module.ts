@@ -17,11 +17,13 @@ import { RouterModule, Routes } from '@angular/router';
 //create an array Routes to hold the routing. Path = name of routing displayed in url ,component = which component
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'users', component: UserComponent },
-  { path: 'users/:id/:name', component: UserComponent }, //by adding id and name that are dynamic parts you can retrive it in the component users in this case
-  { path: 'servers', component: ServersComponent },
-  { path: 'servers/:id', component: ServerComponent },
-  { path: 'servers/:id/edit', component: EditServerComponent },
+  { path: 'users', component: UserComponent, children: [//by adding id and name that are dynamic parts you can retrive it in the component users in this case
+    { path: ':id/:name', component: UserComponent } 
+  ] },
+  { path: 'servers', component: ServersComponent, children: [ // adding chidlren: [] you nest all url using servers 
+    { path: ':id', component: ServerComponent },
+    { path: ':id/edit', component: EditServerComponent }
+  ] }
 ];
 
 @NgModule({
