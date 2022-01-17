@@ -15,11 +15,11 @@ export class UserComponent implements OnInit, OnDestroy{
   
   ngOnInit() {
     this.user = {
-      id: this.route.snapshot.params['id'], // this is need to get the dynamic route/url for user id and name from line 21 app module
+      id: this.route.snapshot.params['id'], 
       name: this.route.snapshot.params['name']
     };
 
-    //to access the user when already inside the component otherwise angular won't waste performance to reload if already in the component so not update on data
+    
     this.paramsSubscription = this.route.params
       .subscribe(
           (params: Params) => {
