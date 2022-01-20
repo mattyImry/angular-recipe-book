@@ -14,9 +14,13 @@ const appRoutes: Routes = [
     { path: 'users', component: UserComponent, children: [//by adding id and name that are dynamic parts you can retrive it in the component users in this case
         { path: ':id/:name', component: UserComponent } 
     ] },
+
+    { path: 'servers', 
     
-    // by using canActivate: [AuthGuard] yuo will be guarding the access with your code in this url and ts child
-    { path: 'servers', canActivate: [AuthGuard], component: ServersComponent, children: [ // adding chidlren: [] you nest all url using servers 
+    //canActivate: [AuthGuard], // by using canActivate: [AuthGuard] yuo will be guarding the access with your code in this url and its child
+    canActivateChild:[AuthGuard], // this will allow you to activate the guard on a child route
+    component: ServersComponent,
+    children: [                                    // adding chidlren: [] you nest all url using servers 
         { path: ':id', component: ServerComponent },
         { path: ':id/edit', component: EditServerComponent }
     ] },
