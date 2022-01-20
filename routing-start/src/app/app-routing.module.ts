@@ -6,6 +6,7 @@ import { EditServerComponent } from "./servers/edit-server/edit-server.component
 import { ServerComponent } from "./servers/server/server.component";
 import { ServersComponent } from "./servers/servers.component";
 import { UserComponent } from "./users/user/user.component";
+import { AuthGuard } from "./auth-guard.service"
 
 //create an array Routes to hold the routing. Path = name of routing displayed in url ,component = which component
 const appRoutes: Routes = [
@@ -13,7 +14,9 @@ const appRoutes: Routes = [
     { path: 'users', component: UserComponent, children: [//by adding id and name that are dynamic parts you can retrive it in the component users in this case
         { path: ':id/:name', component: UserComponent } 
     ] },
-    { path: 'servers', component: ServersComponent, children: [ // adding chidlren: [] you nest all url using servers 
+    
+    // by using canActivate: [AuthGuard] yuo will be guarding the access with your code in this url and ts child
+    { path: 'servers', canActivate: [AuthGuard], component: ServersComponent, children: [ // adding chidlren: [] you nest all url using servers 
         { path: ':id', component: ServerComponent },
         { path: ':id/edit', component: EditServerComponent }
     ] },
