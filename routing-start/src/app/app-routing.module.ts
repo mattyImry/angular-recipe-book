@@ -8,6 +8,7 @@ import { ServersComponent } from "./servers/servers.component";
 import { UserComponent } from "./users/user/user.component";
 import { AuthGuard } from "./auth-guard.service"
 import { CanDeactivateGuard } from "./servers/edit-server/can-deactivate-guard.service";
+import { ErrorPageComponent } from "./error-page/error-page.component";
 
 //create an array Routes to hold the routing. Path = name of routing displayed in url ,component = which component
 const appRoutes: Routes = [
@@ -25,7 +26,8 @@ const appRoutes: Routes = [
         { path: ':id', component: ServerComponent },
         { path: ':id/edit', component: EditServerComponent, canDeactivate: [CanDeactivateGuard] } // redirecting with can deactivate
     ] },
-    { path: 'not-found', component: PageNotFoundComponent },
+    //{ path: 'not-found', component: PageNotFoundComponent },
+    { path: 'not-found', component: ErrorPageComponent, data: {message: 'Page not found!'} },
     { path: '**', redirectTo: '/not-found' } //by using the ** wild card for route will catch all the url not known in the app has to be the last one in the list of routes
 ];
 
