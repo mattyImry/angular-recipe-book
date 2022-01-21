@@ -9,6 +9,7 @@ import { UserComponent } from "./users/user/user.component";
 import { AuthGuard } from "./auth-guard.service"
 import { CanDeactivateGuard } from "./servers/edit-server/can-deactivate-guard.service";
 import { ErrorPageComponent } from "./error-page/error-page.component";
+import { ServerResolver } from "./servers/server/server-resolver.service";
 
 //create an array Routes to hold the routing. Path = name of routing displayed in url ,component = which component
 const appRoutes: Routes = [
@@ -23,7 +24,7 @@ const appRoutes: Routes = [
     canActivateChild:[AuthGuard], // this will allow you to activate the guard on a child route
     component: ServersComponent,
     children: [                                    // adding chidlren: [] you nest all url using servers 
-        { path: ':id', component: ServerComponent },
+        { path: ':id', component: ServerComponent, resolve: {server: ServerResolver} },
         { path: ':id/edit', component: EditServerComponent, canDeactivate: [CanDeactivateGuard] } // redirecting with can deactivate
     ] },
     //{ path: 'not-found', component: PageNotFoundComponent },
