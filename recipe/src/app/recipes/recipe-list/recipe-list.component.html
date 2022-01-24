@@ -8,7 +8,10 @@
   <div class="col-xs-12">
     <!--binding to [recipe] coming from recipe-item.ts because we are referring it in app-recipe-item component -->
 
-    <app-recipe-item *ngFor="let recipeEl of recipes" [recipe]="recipeEl">
+    <app-recipe-item 
+      *ngFor="let recipeEl of recipes; let i = index" 
+      [recipe]="recipeEl"
+      [index]="i">
       <!-- (recipeSelected)='onRecipeSelected(recipeEl)'> -->
 
       <!-- (recipeSelected)='onRecipeSelected(recipeEl)' this is needed to pass info from recipe-item to recipe-list to the go to recipes component
