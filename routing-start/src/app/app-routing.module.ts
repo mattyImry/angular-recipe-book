@@ -34,6 +34,7 @@ const appRoutes: Routes = [
 
 @NgModule({
     imports: [
+       // RouterModule.forRoot(appRoutes, {useHash: true}) // {useHash: true} is hash mode routing to avoid hosting server giving you 404 so your app wont run
         RouterModule.forRoot(appRoutes)
     ],
     exports: [RouterModule]
