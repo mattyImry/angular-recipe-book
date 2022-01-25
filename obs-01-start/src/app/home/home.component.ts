@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy} from '@angular/core';
 
 import { interval, Observable, Subscription } from 'rxjs';
+import { map, filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -21,7 +22,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       let count = 0;
       setInterval(() => {
         observer.next(count);
-        if (count === 2) {
+        if (count === 5) {
           observer.complete(); // completing the onbservable nothing else will be executed
         }
         if (count > 3) {
@@ -31,7 +32,15 @@ export class HomeComponent implements OnInit, OnDestroy {
       }, 1000);
     });
 
-    this.firstObsSubscription = customIntervalObserver.subscribe(data => { // 1st argument of subscribe function dealing with data etc
+    
+    // using pipe with map operator
+
+    this.firstObsSubscription = customIntervalObserver.pipe(filter(data => {
+      return data > 0;
+    }),
+    map((data: number) => {
+      return 'Round: ' + (data + 1);
+    }), ).subscribe(data => { // 1st argument of subscribe function dealing with data etc
       console.log(data);
     }, error => { // 2nd argument function handling error with observable
       console.log(error);
