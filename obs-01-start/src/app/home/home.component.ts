@@ -21,14 +21,24 @@ export class HomeComponent implements OnInit, OnDestroy {
       let count = 0;
       setInterval(() => {
         observer.next(count);
+        if (count === 2) {
+          observer.complete(); // completing the onbservable nothing else will be executed
+        }
+        if (count > 3) {
+          observer.error(new Error('Count is major then 3'))
+        }
         count++;
       }, 1000);
     });
 
-    this.firstObsSubscription = customIntervalObserver.subscribe(data => {
+    this.firstObsSubscription = customIntervalObserver.subscribe(data => { // 1st argument of subscribe function dealing with data etc
       console.log(data);
-      
-    })
+    }, error => { // 2nd argument function handling error with observable
+      console.log(error);
+      alert(error.message);// display alert to user
+    }, () => { //3rd argument empty function to react to the completion
+      console.log('Completed')
+    });
   }
 
   ngOnDestroy(): void { //3 onDestroy to unsubscribe to the sunscription every time i leave that component i unsubscribe to save resources
