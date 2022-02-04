@@ -1,3 +1,4 @@
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
@@ -14,6 +15,24 @@ export class AppComponent {
   
   suggestUserName() {
     const suggestedName = 'Superuser';
+    //CREATE THE SAME OBJECT AS IN THE FORM WITH THE USE OF setValue() METHOD, NOT A VERY GOOD METHODS DUE TO THE FACT THAT THE FORM GETS CLEARED of all input
+    // this.signupForm.setValue({ 
+    //   userData : {
+    //     username: suggestedName,
+    //     email: '',
+    //   },
+    //   secret: 'Pet',
+    //   questionAnswer: '',
+    //   gender: 'male'
+    // });
+
+    //PATCH VALUE METHOD TO PATCH ONLY THE VALUE WE NEED TO DINAMICALLY CHANGE
+    //THIS METHOD IS ONLY AVAILABLE INSIDE THE FORM GROUP: OUR FORM + FORM this.signupForm.form.patchValue()
+    this.signupForm.form.patchValue({
+      userData: {
+        username: suggestedName
+      }
+    });
   }
 
   // onSubmit(form: NgForm) { //get asses to the form using (ngSubmit)="onSubmit(f)" #f="ngForm" in the form tag
